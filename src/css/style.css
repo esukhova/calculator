@@ -44,6 +44,10 @@
   .brown #screen {
     font-family: Digital7, sistem-ui, sans-serif;
   }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 @layer components {

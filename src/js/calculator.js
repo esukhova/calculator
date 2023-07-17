@@ -18,24 +18,26 @@ export const calculation = () => {
   }
 
   function changeSign() {
-    if (finish===false && b==="") {
+    if (finish === false && b === "") {
       a = +a;
       a = -a;
       out.textContent = a;
       console.log(a, b, sign);
-    } else if (finish===false && b!==""){
-      b= +b;
+    } else if (finish === false && b !== "") {
+      b = +b;
       b = -b;
       out.textContent = b;
       console.log(a, b, sign);
-    }
-    if (finish===true) {
+    } else if (finish === true) {
       a = +a;
       a = -a;
       b = "";
       finish = false;
       out.textContent = a;
       console.log(a, b, sign);
+    }
+    if (a < -9999999 || b < -9999999) {
+      out.textContent = "Toosmall";
     }
   }
 
@@ -63,13 +65,13 @@ export const calculation = () => {
       if (b === "" && sign === "") {
         a += key;
         if (a > 99999999) {
-          out.textContent = "Too big";
+          out.textContent = "Toobig";
         } else if (a.length > 9) {
           a = (+a).toFixed(2);
           out.textContent = a;
         } else {
           out.textContent = a;
-        }  
+        }
       } else if (a !== "" && b !== "" && finish) {
         b = key;
         finish = false;
@@ -121,11 +123,13 @@ export const calculation = () => {
       }
       finish = true;
       if (a > 9999999) {
-        out.textContent = "Too big";
+        out.textContent = "Toobig";
+      } else if (a < -9999999) {
+        out.textContent = "Toosmall";
       } else {
         out.textContent = a;
       }
-      
+
       console.log(a, b, sign);
     }
   };
