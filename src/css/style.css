@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: BalooBhaina2;
+    font-weight: 500;
+    font-style: normal;
+    src: url("/fonts/BalooBhaina2/BalooBhaina2-Medium.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: BetterVCR;
+    font-weight: 400;
+    font-style: normal;
+    src: url("/fonts/BetterVCR/better-vcr.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: CnivoMono;
+    font-weight: 500;
+    font-style: normal;
+    src: url("/fonts/CnivoMono/ChivoMono-Medium.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: Digital7;
+    font-weight: 500;
+    font-style: normal;
+    src: url("/fonts/Digital7/digital-7.ttf") format("truetype");
+  }
+
+  .black,
+  .square {
+    font-family: CnivoMono, sistem-ui, sans-serif;
+  }
+
+  .pink {
+    font-family: BalooBhaina2, sistem-ui, sans-serif;
+  }
+
+  .brown {
+    font-family: BetterVCR, sistem-ui, sans-serif;
+  }
+
+  .brown #screen {
+    font-family: Digital7, sistem-ui, sans-serif;
+  }
+}
+
+@layer components {
+  #app {
+    @apply h-screen flex flex-row sm:justify-center items-center box-border;
+  }
+
+  #bg {
+    @apply hidden;
+  }
+
+  .pink + #bg {
+    @apply sm:block absolute w-[400px] h-[600px] rounded-3xl bg-gray-800;
+  }
+
+  #calculator {
+    @apply w-screen h-screen p-2  sm:w-80 sm:h-[510px] grid grid-rows-[1fr_repeat(5,25vw)] sm:grid-rows-[1fr_repeat(5,75px)] grid-cols-4 bg-gray-800 rounded-xl border-2 border-black z-10;
+  }
+
+  .pink#calculator {
+    @apply bg-green-900 border-8 border-pink-900;
+  }
+
+  .brown#calculator {
+    @apply bg-orange-900 border-orange-950;
+  }
+
+  #screen {
+    @apply p-2 mb-2 sm:h-[110px] row-span-1 col-span-full flex flex-row items-end justify-end bg-gray-400 text-black text-[68px] sm:text-6xl sm:pb-0 rounded-lg border-2 border-black;
+  }
+
+  .brown #screen {
+    @apply sm:h-[100px] bg-[#9e9c98] m-2 rounded-md border-2 border-orange-950;
+  }
+
+  .pink #screen {
+    @apply bg-pink-100 text-slate-900 rounded-xl border-pink-900;
+  }
+
+  .square #screen {
+    @apply bg-slate-100 rounded-xl;
+  }
+
+  .button {
+    @apply appearance-none rounded-full bg-slate-900  border-2 border-black text-2xl text-white active:bg-slate-950 active:scale-95;
+  }
+
+  .black .button {
+    @apply shadow-[0_3px_3px_rgba(0,0,0,0.5)] m-1;
+  }
+
+  .square .button {
+    @apply rounded-xl bg-slate-900  border-2 border-green-800 text-white m-1 active:bg-slate-950;
+  }
+
+  .pink .button {
+    @apply rounded-full bg-pink-700  border-2 border-pink-200 drop-shadow-[0_3px_5px_rgba(150,0,0,0.8)] text-4xl text-white m-[-4px] pt-3;
+  }
+
+  .brown .button {
+    @apply m-0 bg-[#f1b138] border-2 border-orange-950 shadow-[0_0_5px_5px_rgba(150,70,70,0.8)_inset] rounded-none outline outline-2 outline-offset-[-15px] outline-orange-800 text-black active:bg-[#f1ac2bc7];
+  }
+
+  .operator.button {
+    @apply text-green-600;
+  }
+
+  .brown .operator.button {
+    @apply text-gray-600 outline-gray-600;
+  }
+
+  .pink .operator.button {
+    @apply text-slate-900;
+  }
+
+  #mode {
+    @apply w-4/6 h-4/6 sm:w-14 sm:h-14 m-auto;
+  }
+
+  .black #mode {
+    @apply rounded-xl bg-slate-900  border-2 border-green-800;
+  }
+
+  .square #mode {
+    @apply bg-[#f1b138] border-2 border-orange-950  shadow-[0_0_5px_5px_rgba(150,70,70,0.8)_inset]   rounded-none outline outline-offset-[-11px] outline-orange-800 active:bg-[#f1ac2bc7];
+  }
+
+  .pink #mode {
+    @apply rounded-full bg-slate-900  border-2 border-black drop-shadow-[0_3px_3px_rgba(0,0,0,0.5)];
+  }
+
+  .brown #mode {
+    @apply rounded-full bg-pink-700  border-2 border-pink-200 outline-none shadow-[0_3px_15px_rgba(0,0,0,1)];
+  }
+}
